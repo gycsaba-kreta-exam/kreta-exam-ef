@@ -7,13 +7,9 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-//builder.Services.ConfigureMySqlContext(builder.Configuration);
-
 var connectionString = builder.Configuration.GetConnectionString("ConnectionString");
-builder.Services.AddDbContext<KretaContext>(options =>
-{
-    options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
-});
+
+builder.Services.AddDbContext<KretaContext>(option => option.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
 
 var app = builder.Build();
 

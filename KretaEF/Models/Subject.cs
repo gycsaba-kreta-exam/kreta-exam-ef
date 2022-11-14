@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -7,23 +8,14 @@ using System.Threading.Tasks;
 
 namespace _06_linq.Model
 {
+    [Index(nameof(Name),IsUnique =true)]
     public class Subject
     {
         [Key]
         public int Id { get; set; }
-        [Required]
+        [Required(ErrorMessage ="Name field is required.")]
+        [StringLength(maximumLength:30,MinimumLength =4)]
         public string Name { get; set; }
 
-        public Subject()
-        {
-            Id = -1;
-            Name=string.Empty;
-        }
-
-        public Subject(int id, string name)
-        {
-            this.Id = id;
-            this.Name = name;
-        }
     }
 }

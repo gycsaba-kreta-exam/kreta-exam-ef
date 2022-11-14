@@ -5,7 +5,7 @@ namespace KretaEF.Extensions
     public static class ServiceExtenxions
     {
         // MySql
-        public static void ConfigureMySqlContext(this IServiceCollection services, IConfiguration config)
+        /*public static void ConfigureMySqlContext(this IServiceCollection services, IConfiguration config)
         {
             var connectionString = config["mysqlconnection:connectionString"];
 
@@ -19,7 +19,7 @@ namespace KretaEF.Extensions
                     maxRetryCount: 5,
                     maxRetryDelay: System.TimeSpan.FromSeconds(3000),
                     errorNumbersToAdd: null)
-                ));*/
-        }
+                ));
+        }*/
     }
 }
